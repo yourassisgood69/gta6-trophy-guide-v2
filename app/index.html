@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA 6 Platinum Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <p class="eyebrow">Grand Theft Auto VI — PlayStation 5</p>
+  <h1>Leonida Trophy Guide</h1>
+  <p class="lede">Every one of the 55 official trophies — 1 platinum, 2 gold, 6 silver, 46 bronze, 28 hidden on PlayStation until earned — with a guide to each, a roadmap to the platinum, and a tracker that saves your progress in this browser.</p>
+  <div class="progress-wrap">
+    <p id="progressText" class="progress-text">0 of 55 earned</p>
+    <div class="progress-bar" role="progressbar" id="progressBar" aria-label="Trophies earned" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" aria-describedby="progressText">
+      <span id="progressFill" class="progress-fill"></span>
+    </div>
+    <p class="progress-note"><span id="gradeCounts">Platinum 0 of 1 · Gold 0 of 2 · Silver 0 of 6 · Bronze 0 of 46</span></p>
+  </div>
+  <nav class="views" aria-label="Views">
+    <button type="button" id="viewChecklist" data-view="checklist" class="view-btn active" aria-pressed="true">Checklist</button>
+    <button type="button" id="viewRoadmap" data-view="roadmap" class="view-btn" aria-pressed="false">Roadmap</button>
+    <button type="button" id="viewMissable" data-view="missable" class="view-btn" aria-pressed="false">Missables</button>
+  </nav>
+</header>
+<main>
+  <section class="controls" aria-label="Filters and search">
+    <label class="search-label">Search trophies
+      <input type="search" id="searchBox" placeholder="Search by name, description or guide" autocomplete="off">
+    </label>
+    <div class="filter-group" id="gradeFilters" role="group" aria-label="Filter by grade">
+      <span class="filter-title">Grade:</span>
+      <button type="button" data-grade="all" class="chip active">All</button>
+      <button type="button" data-grade="platinum" class="chip">Platinum</button>
+      <button type="button" data-grade="gold" class="chip">Gold</button>
+      <button type="button" data-grade="silver" class="chip">Silver</button>
+      <button type="button" data-grade="bronze" class="chip">Bronze</button>
+    </div>
+    <div class="filter-group" id="kindFilters" role="group" aria-label="Filter by kind">
+      <span class="filter-title">Kind:</span>
+      <button type="button" data-kind="all" class="chip active">All kinds</button>
+      <button type="button" data-kind="story" class="chip">Story</button>
+      <button type="button" data-kind="missable" class="chip">Missable</button>
+      <button type="button" data-kind="collectibles" class="chip">Collectibles</button>
+      <button type="button" data-kind="activities" class="chip">Activities</button>
+    </div>
+    <div class="settings">
+      <label class="check-label"><input type="checkbox" id="spoilerToggle"> Hide story trophies until earned (spoiler-free)</label>
+      <label class="check-label"><input type="checkbox" id="earnedOnlyToggle"> Earned only</label>
+      <button type="button" id="exportBtn" class="btn">Export progress</button>
+      <button type="button" id="importBtn" class="btn">Import progress</button>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+      <button type="button" id="resetBtn" class="btn danger">Reset progress</button>
+    </div>
+    <p class="hint">Tip: use Tab to move between trophy cards, Enter to open a guide. Your progress is saved in this browser automatically.</p>
+  </section>
+  <section id="roadmapPanel" class="roadmap" hidden aria-label="Roadmap to the platinum">
+    <h2>Roadmap to the platinum</h2>
+    <p>Built from the official trophy descriptions alone: play the story in order, clear the named missions and side strands, then work the activities and collectibles, and finish with 100% completion. The platinum, Vice Got a Price!, pops when the other 54 are earned.</p>
+    <ol id="roadmapList" class="roadmap-list"></ol>
+    <p class="roadmap-note">Missable trophies are flagged on their cards. The named-mission trophies are the ones to watch: replay a mission from the mission replay menu if its trophy does not pop. Choices, once made, cannot be unmade in that playthrough, so keep a save before big story choices.</p>
+  </section>
+  <section id="missablePanel" class="missable-intro" hidden aria-label="Missable trophies">
+    <h2>Missable trophies — do these before they pass</h2>
+    <p>These trophies are tied to one named mission, one specific attempt, or one choice. They are flagged from the official descriptions: a named mission, a single attempt, or a choice that cannot be undone. Everything else in the list can be earned after the story ends.</p>
+    <p id="missableCount" class="count-line"></p>
+  </section>
+  <p id="resultCount" class="count-line" aria-live="polite"></p>
+  <section id="cardList" class="cards" aria-label="Trophy checklist"></section>
+  <p id="emptyNote" class="empty" hidden>No trophies match these filters. Clear the search or pick another filter.</p>
+</main>
+<dialog id="detailDialog" class="dialog" aria-labelledby="dialogTitle">
+  <form method="dialog" class="dialog-form">
+    <h2 id="dialogTitle"></h2>
+    <p id="dialogMeta" class="dialog-meta"></p>
+    <p id="dialogBadges" class="dialog-badges"></p>
+    <p id="dialogDesc" class="dialog-desc"></p>
+    <h3>Guide</h3>
+    <p id="dialogGuide" class="dialog-guide"></p>
+    <p id="dialogSource" class="dialog-source"></p>
+    <div class="dialog-actions">
+      <button type="button" id="dialogEarnedBtn" class="btn">Mark earned</button>
+      <button type="submit" class="btn">Close</button>
+    </div>
+  </form>
+</dialog>
+<footer>
+  <p>Guide written for this entry from the official trophy list. Names, descriptions and grades are as PlayStation publishes them; each guide cites its sources by name. Works offline from its own files — no network requests, no external fonts or images.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
